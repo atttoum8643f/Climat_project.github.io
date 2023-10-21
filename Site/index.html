@@ -38,5 +38,154 @@
         </body>
         </html>
         
+
+        {
+            font-family: "Abel", sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+          }
+      
+          .weather-dashboard {
+            padding: 30px 50px;
+            border-radius: 6px;
+            box-shadow: 0px 2px 20px 5px rgba(0, 0, 0, 0.1);
+            background-color: floralwhite;
+          }
+      
+          .location {
+            font-size: 1.8em;
+            color: #888;
+            position: relative;
+            margin-bottom: 5px;
+          }
+      
+          .weather-data {
+            margin: 0;
+            padding: 0;
+          }
+      
+          .weather-data li {
+            margin-right: 30px;
+            display: inline-block;
+          }
+      
+          .weather-data li:first-child {
+            margin-right: 55px;
+          }
+      
+          .weather-data li:last-child {
+            margin-right: 0;
+          }
+      
+          .day-name {
+            margin-bottom: 11px;
+            color: #888;
+            display: block;
+            font-weight: bold
+          }
+      
+          .current-temperature {
+            font-size: 4em;
+            color: #888;
+          }
+      
+          .forecast-temperature {
+            font-size: 1em;
+            color: #888;
+            margin-bottom: 15px;
+          }
+      
+          .icons {
+            height: 25px;
+            width: 25px;
+            background-position: center center;
+            background-size: 25px;
+            background-repeat: no-repeat;
+          }
+      
+          .weather_description {
+            margin-left: 12px;
+          }
+      
+          .localtime {
+            margin-bottom: 40px;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="weather-dashboard">
+          <div id="location" class="location"></div>
+          <div id="localtime" class="localtime"></div>
+          <ul class="weather-data" id="weather-data-list">
+            <li>
+              <img id="weather-icon" class="icons">
+                <span id="weather_description" class="weather_description"></span>
+              </img>
+              <div id="temperature" class="current-temperature"></div>
+            </li>
+          </ul>
+        </div>
+        <script>
+          const apiKey = "ac2591c1b872564a6299d9c0ed03475bd";
+          const apiUrl = `https://api.weatherstack.com/forecast?access_key=${apiKey}&query=Montpellier&forecast_days=5&hourly=0`;
+          fetch(apiUrl)
+            .then(response => response.json())
+            .then(jsonResponse => {
+              const current = jsonResponse.current;
+      
+              // Update HTML elements with API data
+              document.getElementById("location").textContent = jsonResponse.location.name;
+              document.getElementById("weather-icon").src = current.weather_icons[0];
+              document.getElementById("temperature").textContent = `${current.temperature}°C`;
+      
+              // Display local time and date
+              const localTime = new Date(jsonResponse.location.localtime);
+              const dayOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][localTime.getDay()];
+              const formattedTime = localTime.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric' });
+              document.getElementById("localtime").textContent = `${dayOfWeek}, ${formattedTime}`;
+      
+              // Display weather description
+              const weatherDescription = current.weather_descriptions[0];
+              document.getElementById("weather_description").textContent = weatherDescription;
+              
+              const forecast = jsonResponse.forecast;
+              // Get today's date in the format "YYYY-MM-DD"
+              const todayDate = new Date().toISOString().split("T")[0];
+      
+              const daysList = document.getElementById("weather-data-list");
+      
+              for (const date in forecast) {
+                if (date !== todayDate) {
+                  const avgTemp = forecast[date].avgtemp;
+                  const dayIndex = new Date(date).getDay(); // Get day index (0-6) for the given date
+                  const dayName = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][dayIndex];
+      
+                  // Create li element
+                  const li = document.createElement("li");
+      
+                  // Create day-name span
+                  const dayNameSpan = document.createElement("span");
+                  dayNameSpan.classList.add("day-name");
+                  dayNameSpan.textContent = dayName;
+                  li.appendChild(dayNameSpan);
+      
+                  // Create forecast-tempeture div
+                  const tempetureDiv = document.createElement("div");
+                  tempetureDiv.classList.add("forecast-temperature");
+                  tempetureDiv.textContent = `${avgTemp}°C`;
+                  li.appendChild(tempetureDiv);
+      
+                  daysList.appendChild(li);
+                }
+              }
+            })
+            .catch(error => {
+              console.error("Error fetching data:", error);
+            });
+        </script>
+
+
 </body>
 </html>
