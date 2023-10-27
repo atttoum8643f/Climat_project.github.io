@@ -1,5 +1,45 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Application météorologique</title>
+</head>
+<body>
+
+  <header>
+      <p>Nous allons, créer tout au long de ce projet une application météorologique.
+      Cette application affichera les prévisions météorologiques des jours à venir à Montpellier.
+      Cependant, pour y parvenir nous avons séparé le travail en trois thème principale,
+      la première partie consisté à crée le site et de faire en sorte qu’elle soit fonctionnelle.
+      La seconde partie, nous allons créer voir une carte interactive de la ville de Montpellier 
+      en fonction d’une couleur pour caractériser les différents aspects de la météo.
+      De ce fait nous aurrons à télécharger des données via un site météorologique. 
+      Enfin, nous allons mettre en relation et fusionné tout nos données et probablement
+      un code qu’on aura mis en place afin de créer l’application.</p>
+  </header>
+
+  <div>
+      <h1>Création d'une application de prévision météorologique</h1>
+      <p>Cette section décrira le processus de création de l'application.</p>
+  </div>
+
+  <div>
+      <h2>Les donées en une image</h2>
+      <p>La prévision météorologique des cinq prochains jours
+      se met à jour automatiquement.</p>
+  </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
 
 <head>
     <title>Weather Dashboard</title>
@@ -90,41 +130,6 @@
         }
     </style>
 </head>
-
-
-
-<body>
-
-  <header>Nous allons, créer tout au long de ce projet une application météorologique.
-       Cette application affichera les prévisions météorologiques des jours à venir à montpellier.
-       Cependant, pour y parvenir nous avons séparé le travail en trois thème principale,
-       la première partie consisté à crée le site et de faire en sorte qu’elle soit fonctionnelle.
-       La seconde partie, nous allons créer voir une carte interactive de la ville de Montpellier 
-       en fonction d’une couleur pour caractériser les différents aspects de la météo.
-       De ce fait nous aurrons à télécharger des données via un site météorologique. 
-       Enfin, nous allons mettre en relation et fusionné tout nos données et probablement
-       un code qu’on aura mis en place afin de créer l’application.
-      </header>
-  
-      <div>
-          <h1>Création d'une application de prévision météorologique</h1>
-          <p>
-  
-          </p>
-      </div>
-  
-      <div>
-          <h2>Les donées en une image</h2>
-          <p>
-           La prévision météorologique des cinq prochains jours
-           se met à jour automatiquement.
-          </p>
-  
-          </body>
-          </html>
-
-
-
 
 <body>
     <div class="weather-dashboard">
@@ -227,4 +232,42 @@
 
 </body>
 
+</html>
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carte simple</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+
+    <div>
+        <h1>Ma carte interactive</h1>
+    </div>
+
+    <div id="maCarte" style="height: 420px; width: 460px;"></div>
+
+    <script>
+        // Créer la carte
+        var maCarte = L.map('maCarte').setView([43.61, 3.88], 10);
+
+        // Définir le fond de carte
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 20,
+        }).addTo(maCarte);
+
+        // Ajouter des marqueurs
+        L.marker([43.61, 3.88]).addTo(maCarte).bindPopup('Montpellier');
+        L.marker([43.65, 3.67]).addTo(maCarte).bindPopup('Juvignac');
+    </script>
+</body>
 </html>
