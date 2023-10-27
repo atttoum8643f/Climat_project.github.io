@@ -1,23 +1,13 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Données météorologique 
-
-# In[2]:
-
-
 import requests
 def get_weather(city):  
-    response = requests.get(f'http://api.weatherstack.com/current?access_key=c2591c1b872564a6299d9c0ed03475bd&query={city}')
+    response = requests.get(f'http://api.weatherstack.com/current?access_key=ma_cléAPI&query={city}')
     return response.json() # Utilisez la fonction pour obtenir la météo pour une ville spécifique 
 weather_data = get_weather('Montpellier')
 print(weather_data)
 
 
-# In[3]:
 
 
-import requests
 import datetime
 
 def get_weather(api_key, location):
@@ -44,14 +34,9 @@ def display_weather(data):
     print(f"Local Time: {localtime}")
     print(f"Weather Description: {weather_description}")
 
-api_key = "c2591c1b872564a6299d9c0ed03475bd"
+api_key = "ma_clé API"
 location = "Montpellier"
 data = get_weather(api_key, location)
 display_weather(data)
-
-
-# In[ ]:
-
-
 
 
