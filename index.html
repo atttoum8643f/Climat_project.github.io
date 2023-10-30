@@ -244,30 +244,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Carte simple</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <title>Carte interactive</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
-
-    <div>
-        <h1>Ma carte interactive</h1>
-    </div>
-
-    <div id="maCarte" style="height: 420px; width: 460px;"></div>
+    <div id="map" style="height: 420px; width: 460px;"></div>
 
     <script>
         // Créer la carte
-        var maCarte = L.map('maCarte').setView([43.61, 3.88], 10);
+        var maCarte = L.map('map').setView([43.61, 3.88], 10);
 
-        // Définir le fond de carte
+        // Définir le fond de carte (utilisation de OpenStreetMap)
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 20,
+            maxZoom: 19,
         }).addTo(maCarte);
 
-        // Ajouter des marqueurs
+        // Ajouter les marqueurs
         L.marker([43.61, 3.88]).addTo(maCarte).bindPopup('Montpellier');
-        L.marker([43.65, 3.67]).addTo(maCarte).bindPopup('Juvignac');
+
+        L.marker([43.62, 3.82]).addTo(maCarte)
+            .bindPopup('Juvignac');
+
+        L.marker([43.56, 3.90]).addTo(maCarte)
+            .bindPopup('Lattes');
+
+        L.marker([43.56, 3.96]).addTo(maCarte)
+            .bindPopup('Pérols');
+
+        L.marker([43.58, 3.96]).addTo(myMap)
+            .bindPopup('AéroportMontpellier');
+        // Vous pouvez ajouter autant de marqueurs que nécessaire
     </script>
 </body>
 </html>
