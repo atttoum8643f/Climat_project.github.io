@@ -18,21 +18,12 @@
   </header>
 
   <div>
-      <h1>Création d'une application de prévision météorologique</h1>
       <p>Cette section décrira le processus de création de l'application.</p>
   </div>
 
-  <div>
-      <h2>Les donées en une image</h2>
-      <p>La prévision météorologique des cinq prochains jours
-      se met à jour automatiquement.</p>
-  </div>
 
 </body>
 </html>
-
-
-
 
 
 
@@ -42,201 +33,100 @@
 <html>
 
 <head>
-    <title>Weather Dashboard</title>
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>Tableau de Bord Météorologique</title>
     <style>
-        @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
-
-        html,
-        body {
-            background-color: rgb(243, 247, 247);
-            font-family: "Montserrat", sans-serif;
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
         }
 
-        .weather-dashboard {
-            margin: 0 auto;
-            margin-top: 5%;
-            padding: 5px 30px;
-            width: 327px;
-            height: 425px;
-            border-radius: 3px;
-            box-shadow: 1px 2px 10px rgba(0, 0, 0, .2);
-            background-color: rgba(45, 165, 119, 0.747);
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
         }
 
-        h1 {
-            float: right;
-            color: #666;
-            font-weight: 300;
-            font-size: 6.59375em;
-            line-height: .2em;
-            padding-top: 33px;
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
         }
 
-        .location {
-            font-weight: 300;
-            font-size: 2.25em;
-        }
-
-        .weather-description {
-            float: left;
-            color: #777;
-            font-weight: 400;
-            font-size: 1em;
-        }
-
-        .main-content {
-            position: relative;
-            left: -29px;
-            width: 118%;
-            bottom: -23px;
-            transition: bottom 0.3s;
-            background: white;
-            display: table;
-        }
-
-        .weather-column {
-            padding: 0 0 20px;
-            display: table-cell;
-            text-align: center;
-            opacity: 0.5;
-        }
-
-        .is-active {
-            opacity: 1;
-            transition: all 0.3s;
-        }
-
-        .day {
-            text-transform: uppercase;
-            font-weight: bold;
-            font-size: 20px;
-            margin: 10px 0 0;
-        }
-
-        .weather-icon {
-            position: relative;
-            padding-top: 65px;
-        }
-
-        .weather-icon .sun {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            background: #FFD53C;
-            border: 3px solid #000;
-            position: absolute;
-            left: -12px;
+        th {
+            background-color: #4CAF50;
+            color: white;
         }
     </style>
 </head>
 
 <body>
-    <div class="weather-dashboard">
-        <h2 id="location" class="location"></h2>
-        <h3 id="weather-description" class="weather-description"></h3>
-        <h1 id="temperature"></h1>
-        <div class="weather-icon">
-            <div class="sun"></div>
-        </div>
-        <main class="main-content">
-        </main>
-    </div>
-    <script>
-        const apiKey = "2591C1B872564A6299D9C0ED03475BD";
-        const historicalWeatherUrl = `http://api.weatherstack.com/historical?access_key=${apiKey}&query=Montpellier&historical_date_start=2023-08-13&historical_date_end=2023-08-15`;
-        fetch(historicalWeatherUrl)
-            .then(response => response.json())
-            .then(data => {
-                const current = data.current;
-                // Update header elements with API data
-                document.getElementById("location").textContent = data.location.name;
-                // Display weather description
-                const weatherDescription = current.weather_descriptions[0];
-                document.getElementById("weather-description").textContent = weatherDescription;
+    <h1>Tableau de Bord Météorologique</h1>
 
-                document.getElementById("temperature").textContent = `${current.temperature}°`;
+    <h2>Données Actuelles</h2>
+    <table>
+        <tr>
+            <th>Location ID</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Lieu</th>
+            <th>Temperature (°C)</th>
+            <th>Relative Humidity (%)</th>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>43.58</td>
+            <td>3.96</td>
+            <td>Montpellier</td>
+            <td>19.2</td>
+            <td>90</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>43.62</td>
+            <td>3.82</td>
+            <td>Juvignac</td>
+            <td>18.6</td>
+            <td>91</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>43.56</td>
+            <td>3.90</td>
+            <td>Lattes</td>
+            <td>19.2</td>
+            <td>90</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>43.56</td>
+            <td>3.96</td>
+            <td>Pérols</td>
+            <td>19.4</td>
+            <td>90</td>
+        </tr>
+    </table>
 
-                // Fill in historical data
-                const historicalData = data.historical;
-                const mainContent = document.querySelector(".main-content");
-
-                for (const date in historicalData) {
-                    const historicalInfo = historicalData[date];
-                    const dayOfWeek = new Date(date).toLocaleDateString('en-US', { weekday: 'short' });
-
-                    const weatherColumn = document.createElement("article");
-                    weatherColumn.classList.add("weather-column");
-
-
-                    weatherColumn.innerHTML = `
-                        <span class="weather-symbol"></span>
-                        <p class="day">${dayOfWeek}</p>
-                        <p class="temperature">${historicalInfo.avgtemp}°</p>
-                    `;
-
-                    mainContent.appendChild(weatherColumn);
-                }
-
-                // Fill in current date
-                const dateParts = data.location.localtime.split(' ')[0]
-                const formattedDate = `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`;
-                const dayOfWeek = new Date(dateParts).toLocaleDateString('en-US', { weekday: 'short' });
-
-                const weatherColumn = document.createElement("article");
-                weatherColumn.classList.add("weather-column");
-                weatherColumn.classList.add("is-active");
-
-                weatherColumn.innerHTML = `
-                    <span class="weather-symbol"></span>
-                    <p class="day">${dayOfWeek}</p>
-                    <p class="temperature">${current.temperature}°</p>
-                    `;
-
-                mainContent.appendChild(weatherColumn);
-            })
-            .then(
-                data => {
-                    // Fill in forecast data
-                    const forecastWeatherUrl = `https://api.weatherstack.com/forecast?access_key=${apiKey}&query=Montpellier&forecast_days=4&hourly=0`;
-                    fetch(forecastWeatherUrl)
-                        .then(response => response.json())
-                        .then(jsonResponse => {
-                            const forecast = jsonResponse.forecast;
-                            const mainContent = document.querySelector(".main-content");
-                            console.log(mainContent)
-                            // Get today's date in the format "YYYY-MM-DD"
-                            const todayDate = new Date().toISOString().split("T")[0];
-                            for (const date in forecast) {
-                                if (date !== todayDate) {
-                                    const avgTemp = forecast[date].avgtemp;
-                                    const dayOfWeek = new Date(date).toLocaleDateString('en-US', { weekday: 'short' });
-
-                                    const weatherColumn = document.createElement("article");
-                                    weatherColumn.classList.add("weather-column");
-
-                                    weatherColumn.innerHTML = `
-                                            <span class="weather-symbol"></span>
-                                            <p class="day">${dayOfWeek}</p>
-                                            <p class="temperature">${avgTemp}°</p>
-                                            `;
-
-                                    mainContent.appendChild(weatherColumn);
-                                }
-                            }
-                        })
-                }
-            )
-            .catch(error => console.error("Error:", error));
-    </script>
-
+    <h2>Prévisions pour les Prochains Jours</h2>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Temperature Maximale (°C)</th>
+            <th>Temperature Minimale (°C)</th>
+        </tr>
+        <tr>
+            <td>2023-10-30</td>
+            <td>20.1</td>
+            <td>14.8</td>
+        </tr>
+        <tr>
+            <td>2023-10-31</td>
+            <td>19.6</td>
+            <td>12.8</td>
+        </tr>
+        <!-- Ajoutez d'autres lignes pour les jours suivants -->
+    </table>
 </body>
 
 </html>
-
-
-
-
 
 
 
@@ -249,10 +139,11 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
+    
     <div>
         <h1>Ma carte interactive</h1>
     </div>
-    
+
     <div id="map" style="height: 420px; width: 460px;"></div>
 
     <script>
