@@ -147,7 +147,7 @@
             <td>17.1</td>
             <td>13.1</td>
         </tr>
-        <!-- Ajoutez d'autres lignes pour les jours suivants -->
+        <!-- On peut ajouter d'autres lignes pour les jours passés -->
     </table>
 </body>
 
@@ -172,10 +172,10 @@
     <div id="map" style="height: 420px; width: 460px;"></div>
 
     <script>
-        // Créer la carte
+        // Création de la carte
         var maCarte = L.map('map').setView([43.61, 3.88], 10);
 
-        // Définir le fond de carte (utilisation de OpenStreetMap)
+        // Définition du fond de carte (utilisation de OpenStreetMap)
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
         }).addTo(maCarte);
@@ -194,7 +194,7 @@
 
         L.marker([43.58, 3.96]).addTo(myMap)
             .bindPopup('AéroportMontpellier');
-        // Vous pouvez ajouter autant de marqueurs que nécessaire
+        // On pout ajouter autant de marqueurs que nécessaire
     </script>
 </body>
 
@@ -202,7 +202,7 @@
 <body>
     <h1>Carte Interactive avec les données météorologiques</h1>
 
-    <!-- Insérer un lien vers la carte interactive -->
+    <!-- Lien vers la carte interactive -->
     <a href="http://localhost:8888/view/carte_meteo.html">Voir la carte interactive</a>
 
     
@@ -215,7 +215,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Résultats pour 34070 Montpellier</title>
+    <title>Résultats météorologiques pour 34070 Montpellier</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -248,7 +248,7 @@
             background-color: #3afada;
         }
         
-        /* Ajoutez des couleurs en fonction des conditions météorologiques */
+        /* Ajouts des couleurs en fonction des conditions météorologiques */
         .sunny {
             background-color: #ffff99; /* Jaune pour temps ensoleillé */
         }
@@ -342,12 +342,12 @@
 <head>
     <title>Résultats météorologiques pour 34070 Montpellier</title>
     <style>
-        /* Votre CSS ici */
+        /*CSS ici */
     </style>
 </head>
 <body>
     <div class="dashboard">
-        <!-- Votre tableau de bord HTML ici -->
+        <!-- Tableau de bord HTML ici -->
     </div>
 
     <script>
@@ -355,11 +355,11 @@
         function getWeatherData() {
             const apiUrl = "https://api.open-meteo.com/v1/forecast?latitude=43.6109&longitude=3.8763&current=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation&hourly=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation&daily=temperature_2m_max,temperature_2m_min&timezone=auto&forecast_days=16";
 
-            // Effectuez un appel API pour récupérer les données et mettez à jour votre tableau de bord
+            // On effectue un appel API pour récupérer les données afin de mettre à jour le tableau de bord
             fetch(apiUrl)
                 .then(response => response.json())
                 .then(data => {
-                    // Mettez à jour le tableau de bord avec les nouvelles données
+                    // On met à jour le tableau de bord avec les nouvelles données
                     updateDashboard(data);
                 })
                 .catch(error => {
@@ -369,16 +369,16 @@
 
         // Fonction pour mettre à jour le tableau de bord avec de nouvelles données
         function updateDashboard(weatherData) {
-            // Mettez à jour le contenu du tableau de bord en utilisant les données fournies
-            // Par exemple, en mettant à jour les éléments HTML correspondants
-            // Vous pouvez également utiliser les classes CSS conditionnelles pour les couleurs comme décrit précédemment
+            
         }
 
         // Appel initial pour obtenir les données
         getWeatherData();
 
-        // Actualisez les données toutes les 30 minutes (1800000 millisecondes)
-        setInterval(getWeatherData, 3600000/3);
+        // Actualisez les données toutes les 1 minutes (3600000 millisecondes)
+        setInterval(getWeatherData, 3600000);
     </script>
 </body>
 </html>
+
+
