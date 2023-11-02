@@ -210,3 +210,127 @@
 
 
 </html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Résultats pour 34070 Montpellier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .dashboard {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .current-weather {
+            text-align: center;
+            font-size: 24px;
+        }
+        .weather-details {
+            text-align: center;
+            font-size: 18px;
+        }
+        .forecast-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .forecast-table th, .forecast-table td {
+            padding: 10px;
+            text-align: center;
+        }
+        .forecast-table th {
+            background-color: #f2f2f2;
+        }
+        
+        /* Ajoutez des couleurs en fonction des conditions météorologiques */
+        .sunny {
+            background-color: #ffff99; /* Jaune pour temps ensoleillé */
+        }
+        .rainy {
+            background-color: #99ccff; /* Bleu clair pour la pluie */
+        }
+        .default {
+            background-color: #f2f2f2; /* Gris clair par défaut */
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Résultats pour 34070 Montpellier</h1>
+        
+        <!-- Données météorologiques actuelles -->
+        <div class="current-weather">
+            <p class="sunny">Averses</p>
+            <p class="sunny">16°C</p>
+            <p class="rainy">Précipitations : 80%</p>
+            <p class="default">Humidité : 70%</p>
+            <p class="default">Vent : 35 km/h</p>
+        </div>
+        
+        <!-- Prévisions météorologiques -->
+        <table class="forecast-table">
+            <tr>
+                <th>Météo</th>
+                <th class="sunny">jeudi</th>
+                <th class="rainy">ven.</th>
+                <th class="sunny">sam.</th>
+                <th class="sunny">dim.</th>
+                <th class="sunny">lun.</th>
+                <th class="sunny">mar.</th>
+                <th class="default">mer.</th>
+                <th class="sunny">jeu.</th>
+            </tr>
+            <tr>
+                <th></th>
+                <td class="sunny">Averses</td>
+                <td class="rainy">Averses éparses</td>
+                <td class="sunny">Averses</td>
+                <td class="sunny">Ensoleillé dans l'ensemble</td>
+                <td class="sunny">Ensoleillé dans l'ensemble</td>
+                <td class="sunny">Ensoleillé dans l'ensemble</td>
+                <td class="default">Partiellement couvert</td>
+                <td class="sunny">Averses éparses</td>
+            </tr>
+            <tr>
+                <th>Température</th>
+                <td class="sunny">16 °C</td>
+                <td class="rainy">14 °C</td>
+                <td class="sunny">16 °C</td>
+                <td class="sunny">18 °C</td>
+                <td class="sunny">17 °C</td>
+                <td class="sunny">17 °C</td>
+                <td class="default">17 °C</td>
+                <td class="sunny">17 °C</td>
+            </tr>
+            <tr>
+                <th>Précipitations</th>
+                <td class="rainy">80%</td>
+                <td class="sunny">60%</td>
+                <td class="sunny">70%</td>
+                <td class="sunny">20%</td>
+                <td class="sunny">10%</td>
+                <td class="sunny">10%</td>
+                <td class="default">30%</td>
+                <td class="sunny">60%</td>
+            </tr>
+            <tr>
+                <th>Vent</th>
+                <td class="sunny">35 km/h</td>
+                <td class="sunny">30 km/h</td>
+                <td class="sunny">40 km/h</td>
+                <td class="sunny">25 km/h</td>
+                <td class="sunny">20 km/h</td>
+                <td class="sunny">22 km/h</td>
+                <td class="default">18 km/h</td>
+                <td class="sunny">33 km/h</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
