@@ -20,3 +20,4 @@ Permet la manipulation de données géospatiales, particulièrement utile pour c
 ### Folium
 Folium est un outils de visualisation puisque ce package rend possible la conception de cartes interactives. Cette catégorie de cartes est particulièrement utile puisqu'elles sont produites par la bibliothèque Javascript et sont donc directement intégrables sur des sites internet.
 ### Riquests
+Requests est une bibliothèque essentielle pour effectuer des opérations de communication avec des serveurs web dans le cadre de projets Python, y compris la récupération de données à partir d'API, la mise à jour de données, l'automatisation de tâches web, et bien plus encore. Il simplifie grandement l'interaction avec des ressources en ligne et permet de gérer les réponses de manière efficace.
