@@ -3,14 +3,7 @@
 
 # # Données météorologique 
 
-# In[25]:
-
-
 #sourrce du code:"weatherstack"
-
-
-# In[26]:
-
 
 import requests
 import datetime
@@ -44,15 +37,7 @@ location = "Montpellier"
 data = get_weather(api_key, location)
 display_weather(data)
 
-
-# In[30]:
-
-
 #Utilisation d'une clef API de Open météo
-
-
-# In[ ]:
-
 
 import requests
 import geopandas as gpd
@@ -98,22 +83,3 @@ plt.title("Évolution de la température et des précipitations")
 plt.legend()
 plt.grid()
 plt.show()
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
