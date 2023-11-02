@@ -245,7 +245,7 @@
             text-align: center;
         }
         .forecast-table th {
-            background-color: #bef5c3;
+            background-color: #3afada;
         }
         
         /* Ajoutez des couleurs en fonction des conditions météorologiques */
@@ -332,5 +332,53 @@
             </tr>
         </table>
     </div>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Résultats météorologiques pour 34070 Montpellier</title>
+    <style>
+        /* Votre CSS ici */
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Votre tableau de bord HTML ici -->
+    </div>
+
+    <script>
+        // Fonction pour récupérer les données météorologiques depuis l'API
+        function getWeatherData() {
+            const apiUrl = "https://api.open-meteo.com/v1/forecast?latitude=43.6109&longitude=3.8763&current=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation&hourly=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation&daily=temperature_2m_max,temperature_2m_min&timezone=auto&forecast_days=16";
+
+            // Effectuez un appel API pour récupérer les données et mettez à jour votre tableau de bord
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // Mettez à jour le tableau de bord avec les nouvelles données
+                    updateDashboard(data);
+                })
+                .catch(error => {
+                    console.error("Erreur lors de la récupération des données météorologiques : ", error);
+                });
+        }
+
+        // Fonction pour mettre à jour le tableau de bord avec de nouvelles données
+        function updateDashboard(weatherData) {
+            // Mettez à jour le contenu du tableau de bord en utilisant les données fournies
+            // Par exemple, en mettant à jour les éléments HTML correspondants
+            // Vous pouvez également utiliser les classes CSS conditionnelles pour les couleurs comme décrit précédemment
+        }
+
+        // Appel initial pour obtenir les données
+        getWeatherData();
+
+        // Actualisez les données toutes les 30 minutes (1800000 millisecondes)
+        setInterval(getWeatherData, 3600000/3);
+    </script>
 </body>
 </html>
