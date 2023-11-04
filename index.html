@@ -224,6 +224,9 @@
 </html>
 
 
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -259,7 +262,7 @@
         .forecast-table th {
             background-color: #3afada;
         }
-        
+
         /* Ajouts des couleurs en fonction des conditions météorologiques */
         .sunny {
             background-color: #ffff99; /* Jaune pour temps ensoleillé */
@@ -275,15 +278,59 @@
 <body>
     <div class="dashboard">
         <h1>Résultats pour 34070 Montpellier</h1>
-        
+
         <!-- Données météorologiques actuelles -->
         <div class="current-weather">
             <p class="sunny">Averses</p>
-            <p class="sunny">16°C</p>
-            <p class="rainy">Précipitations : 80%</p>
-            <p class="default">Humidité : 70%</p>
-            <p class="default">Vent : 35 km/h</p>
+            <p id="temperature">16°C</p>
+            <p id="precipitation">Précipitations : 80%</p>
+            <p id="humidity">Humidité : 70%</p>
+            <p id="wind">Vent : 35 km/h</p>
         </div>
+
+        <!-- Prévisions météorologiques -->
+        <table class="forecast-table">
+            <!-- Vos prévisions existantes ici -->
+        </table>
+    </div>
+
+    <script>
+        // Fonction pour récupérer les données météorologiques depuis l'API
+        function getWeatherData() {
+            const apiUrl = "https://api.open-meteo.com/v1/forecast?latitude=43.6109&longitude=3.8763&current=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation&hourly=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation&daily=temperature_2m_max,temperature_2m_min&timezone=auto&forecast_days=16";
+
+            // On effectue un appel API pour récupérer les données afin de mettre à jour le tableau de bord
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // On met à jour le tableau de bord avec les nouvelles données
+                    updateDashboard(data);
+                })
+                .catch(error => {
+                    console.error("Erreur lors de la récupération des données météorologiques : ", error);
+                });
+        }
+
+        // Fonction pour mettre à jour le tableau de bord avec de nouvelles données
+        function updateDashboard(weatherData) {
+            const temperatureElement = document.getElementById('temperature');
+            const precipitationElement = document.getElementById('precipitation');
+            const humidityElement = document.getElementById('humidity');
+            const windElement = document.getElementById('wind');
+
+            // Mettre à jour les éléments avec les nouvelles données
+            temperatureElement.textContent = weatherData.current.temperature_2m + "°C";
+            precipitationElement.textContent = "Précipitations : " + weatherData.current.precipitation + "%";
+            humidityElement.textContent = "Humidité : " + weatherData.current.relativehumidity_2m + "%";
+            windElement.textContent = "Vent : " + weatherData.current.apparent_temperature + " km/h";
+        }
+
+        // Appel initial pour obtenir les données
+        getWeatherData();
+
+        // Actualisation des données toutes les 1 heures (3600000 millisecondes)
+        setInterval(getWeatherData, 3600000);
+    </script>
         
         <!-- Prévisions météorologiques -->
         <table class="forecast-table">
@@ -349,48 +396,8 @@
 
 
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Résultats météorologiques pour 34070 Montpellier</title>
-    <style>
-        /*CSS ici */
-    </style>
-</head>
-<body>
-    <div class="dashboard">
-        <!-- Tableau de bord HTML ici -->
-    </div>
 
-    <script>
-        // Fonction pour récupérer les données météorologiques depuis l'API
-        function getWeatherData() {
-            const apiUrl = "https://api.open-meteo.com/v1/forecast?latitude=43.6109&longitude=3.8763&current=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation&hourly=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation&daily=temperature_2m_max,temperature_2m_min&timezone=auto&forecast_days=16";
 
-            // On effectue un appel API pour récupérer les données afin de mettre à jour le tableau de bord
-            fetch(apiUrl)
-                .then(response => response.json())
-                .then(data => {
-                    // On met à jour le tableau de bord avec les nouvelles données
-                    updateDashboard(data);
-                })
-                .catch(error => {
-                    console.error("Erreur lors de la récupération des données météorologiques : ", error);
-                });
-        }
 
-        // Fonction pour mettre à jour le tableau de bord avec de nouvelles données
-        function updateDashboard(weatherData) {
-            
-        }
-
-        // Appel initial pour obtenir les données
-        getWeatherData();
-
-        // Actualisez les données toutes les 1 minutes (3600000 millisecondes)
-        setInterval(getWeatherData, 3600000);
-    </script>
-</body>
-</html>
 
 
