@@ -1,0 +1,238 @@
+@font-face {
+    font-family: "BlackOpsOne";
+    src: url(./fonts/BlackOpsOne-Regular.ttf);
+}
+@font-face {
+    font-family: "DMserif";
+    src: url(./fonts/DMSerifText-Regular.ttf);
+}
+
+
+body{
+    background: url(./Images/image.png) center/cover;
+    font-family: "DMserif", verdana;
+    /*vh = 100% de la taille de l'écran (viewport height)*/
+    min-height: 100vh; 
+}
+
+h1{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    /* les tailles de polices sont en rem */
+    font-size: 2.5rem;
+    text-shadow:-1px 6px 5px #0000008f;
+    color: rgb(22, 17, 17);
+    font-family:"BlackOpsOne", verdana ;
+}
+
+
+.flexbox{
+    border: 2px solid brown;
+    border-radius: 10px;
+    box-shadow:-4px 2px 7px 2px black;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+/*FLEXBOX*/
+/*sert à répartie équitablement des éléments sur la page*/
+.flexbox{
+    margin-top: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.flexbox li{
+list-style: none;/*pour sortir la boule qui énumère les éléments de la bx*/
+height: 160px;
+width: 30%;
+margin: 10px;
+background: rgb(217, 232, 235);
+/* centrer un unique élément verticalement et horizontalement */
+display: flex;
+/* justify-content: center;   
+justify-content: flex-end  */
+}
+
+.flexbox p{
+    font-family: "DMserif", verdana;
+    color: rgb(22, 17, 17);
+    width: 70%;
+}
+
+p{
+    font-family: "DMserif", verdana;
+    color: rgb(100, 98, 98); 
+    padding-top: 15px;
+    padding-bottom: 15px; 
+}
+
+h2{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    /* les tailles de polices sont en rem */
+    font-size: 1rem;
+    text-shadow:-1px 6px 5px #0000008f;
+    color: rgb(22, 17, 17);
+    font-family:"BlackOpsOne", verdana ; 
+}
+
+table{
+    font-family:"BlackOpsOne", verdana ; 
+    color: rgba(6, 3, 202, 0.712);
+    padding-top: 20px; 
+    width: 80%;
+    padding-bottom: 15px;
+    margin: auto;
+    text-align: center;
+}
+
+th, td {
+    border: 2px rgb(10, 9, 9);
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+th {
+    background-color: rgb(41, 233, 137);
+}
+
+
+.flexbox{
+    margin-top: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+
+main{
+    height: 520px;
+    width: 90%;
+    background: rgb(82, 70, 82);
+    /*centrée une boite css*/
+    margin: 0 auto;
+    border: 2px solid rgb(49, 46, 41);
+    border-radius: 20px;
+    /*box-shadow permet de mettre de l'ombre autour de la boite*/
+    box-shadow:-3px -1px 11px 3px #f3c88b;
+    /*la padding permet de decoller le texte du bordure*/
+    padding: 15px;
+}
+
+h2{/*margin=0 implique qu'on enlève les marges de bases*/
+    margin: 0;
+}
+ 
+
+.flexbox{
+    border: 2px solid rgb(209, 209, 59);
+    border-radius: 10px;
+    padding: 1px;
+    margin-top: 1px;
+}
+
+/*FLEXBOX*/
+/*sert à répartie équitablement des éléments sur la page*/
+
+.flexbox dashboard {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2px;
+    border: 3px solid #920b0b;
+    border-radius: 1px;
+}
+.flexbox current-weather {
+    text-align: center;
+    font-size: 2px;
+}
+.flexbox weather-details {
+    text-align: center;
+    font-size: 1px;
+}
+.flexbox forecast-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2px;
+}
+.flexbox forecast-table th, .forecast-table td {
+    padding: 1px;
+    text-align: center;
+}
+.flexbox forecast-table th {
+    background-color: #3afa74;
+}
+
+/* Ajouts des couleurs en fonction des conditions météorologiques */
+.sunny {
+    background-color: #ffff99; /* Jaune pour temps ensoleillé */
+    text-align: center;
+    color: rgb(22, 17, 17);
+}
+.rainy {
+    background-color: #99ccff; /* Bleu clair pour la pluie */
+}
+.default {
+    background-color: #f2f2f2; /* Gris clair par défaut */
+}
+
+.grid{
+    border: 2px solid rgb(209, 209, 59);
+    border-radius: 10px;
+    padding: 1px;
+    margin-top: 1px;
+} 
+
+
+/* Grip */
+.grid-container{
+    display: grid;
+    grid-template-columns: 30% 80%;
+    background-color: rgb(153, 231, 153);
+}
+
+.grid img{
+    width: 80%; 
+}
+
+form{
+    display:grid;
+    margin: 2px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "i1 i2"
+    "ta ta"
+    "vi bt";
+}
+
+input, textarea{
+    margin: 5px;
+    border:1px solid rgb(18, 4, 223);
+    padding: 10px;
+    font-size: 1.1rem;
+    font-family: "DMserif";
+    width: 70%;
+}
+
+textarea{
+    grid-area: ta;
+    height:40px;
+    width: 70%;
+}
+
+#bton-submit{
+    grid-area: bt;
+    width: 70%;
+}
+
+p{
+    font-family: "DMserif", verdana;
+    color: rgb(240, 233, 233);
+}

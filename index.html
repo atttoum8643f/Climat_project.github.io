@@ -1,28 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Application météorologique</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours CSS</title>
+
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
 
-  <header>
-      <p>Nous allons, créer tout au long de ce projet une application météorologique.
-      Cette application affichera les prévisions météorologiques des jours à venir à Montpellier.
-      Cependant, pour y parvenir nous avons séparé le travail en trois thème principale,
-      la première partie consisté à crée le site et de faire en sorte qu’elle soit fonctionnelle.
-      La seconde partie, nous allons créer voir une carte interactive de la ville de Montpellier 
-      en fonction d’une couleur pour caractériser les différents aspects de la météo.
-      De ce fait nous aurrons à télécharger des données via un site météorologique. 
-      Enfin, nous allons mettre en relation et fusionné tout nos données et probablement
-      un code qu’on aura mis en place afin de créer l’application.</p>
-  </header>
+    <header> 
+        <h1> Application météorologique pour Montpellier</h1>
+    </header>
 
-  <div>
-      <p>Au cours de ce projet, nous avons pû réaliser differente recherche concernant la Création d'une application météorologique.
-        Suite à ses recherche nous avons alors mise en place une méthode de travaille afin de répondre
-        à differente problématique qu'on s'est poser.
+    <div class="flexbox">
+        <ul>
+            <li><img src="./Images/meteo.png" alt="FDS" height="100%" width="100%"></li>
+        
+           <p>Nous allons, créer tout au long de ce projet une application météorologique.
+            Cette application affichera les prévisions météorologiques des jours à venir à Montpellier.
+            Cependant, pour y parvenir nous avons séparé le travail en trois thème principale,
+            la première partie consisté à crée le site et de faire en sorte qu’elle soit fonctionnelle.
+            La seconde partie, nous allons créer voir une carte interactive de la ville de Montpellier 
+            en fonction d’une couleur pour caractériser les différents aspects de la météo.
+            De ce fait nous aurrons à télécharger des données via un site météorologique. 
+            Enfin, nous allons mettre en relation et fusionné tout nos données et probablement
+            un code qu’on aura mis en place afin de créer l’application.
+           </p>
+        <ul>
+    </div>
 
-        Dans un premier temps, nous allons télécharger les données en écrivant un code python et
+    <p> Dans un premier temps, nous allons télécharger les données en écrivant un code python et
         en utilisant le package requests et en seconde temps nous allons utilisée les données télécharger
         afin de créer un tableau de bors affichant les température actuelle et celle à venir, l'humidité, les Précipitations etc...
 
@@ -31,93 +42,57 @@
         Nous utiliserons également un code qu'on a trouver dans le site "weatherstack" un site fournissant
         des cles API afin d'obtenir des données météorologiques comme "open-meteo".
       </p>
-  </div>
+
+      <h2>Données passés en fonction d'une ville particulière</h2>
+      <table>
+          <tr>
+              <th>Location ID</th>
+              <th>Latitude</th>
+              <th>Longitude</th>
+              <th>Lieu</th>
+              <th>Temperature (°C)</th>
+              <th>Relative Humidity (%)</th>
+          </tr>
+          <tr>
+              <td>0</td>
+              <td>43.58</td>
+              <td>3.96</td>
+              <td>Montpellier</td>
+              <td>19.2</td>
+              <td>90</td>
+          </tr>
+          <tr>
+              <td>1</td>
+              <td>43.62</td>
+              <td>3.82</td>
+              <td>Juvignac</td>
+              <td>18.6</td>
+              <td>91</td>
+          </tr>
+          <tr>
+              <td>2</td>
+              <td>43.56</td>
+              <td>3.90</td>
+              <td>Lattes</td>
+              <td>19.2</td>
+              <td>90</td>
+          </tr>
+          <tr>
+              <td>3</td>
+              <td>43.56</td>
+              <td>3.96</td>
+              <td>Pérols</td>
+              <td>19.4</td>
+              <td>90</td>
+          </tr>
+      </table>
+
+      <p>
+        Les viles étant dans la même région on peut constater que les données météorologiques sont assez proche.
+      </p>
 
 
-</body>
-</html>
-
-
-
-
-
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Tableau de Bord Météorologique</title>
-    <style>
-        table {
-            font-family: Arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        th, td {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        th {
-            background-color: #52b199;
-            color: white;
-        }
-    </style>
-</head>
-
-<body>
-    <h1>Tableau de Bord Météorologique</h1>
-
-    <h2>Données passés en fonction d'une ville particulière</h2>
-    <table>
-        <tr>
-            <th>Location ID</th>
-            <th>Latitude</th>
-            <th>Longitude</th>
-            <th>Lieu</th>
-            <th>Temperature (°C)</th>
-            <th>Relative Humidity (%)</th>
-        </tr>
-        <tr>
-            <td>0</td>
-            <td>43.58</td>
-            <td>3.96</td>
-            <td>Montpellier</td>
-            <td>19.2</td>
-            <td>90</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>43.62</td>
-            <td>3.82</td>
-            <td>Juvignac</td>
-            <td>18.6</td>
-            <td>91</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>43.56</td>
-            <td>3.90</td>
-            <td>Lattes</td>
-            <td>19.2</td>
-            <td>90</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>43.56</td>
-            <td>3.96</td>
-            <td>Pérols</td>
-            <td>19.4</td>
-            <td>90</td>
-        </tr>
-    </table>
-
-    <h2>Prévisions pour les Prochains Jours</h2>
+      <h2>Prévisions des température max et min pour les Prochains Jours</h2>
     <table>
         <tr>
             <th>Date</th>
@@ -166,243 +141,127 @@
         </tr>
         <!-- On peut ajouter d'autres lignes pour les jours passés -->
     </table>
-</body>
-
-</html>
 
 
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Carte interactive</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-</head>
-<body>
-    
-    <div>
-        <h1>Ma carte interactive</h1>
-    </div>
-
-    <div id="map" style="height: 420px; width: 460px;"></div>
-
-    <script>
-        // Création de la carte
-        var maCarte = L.map('map').setView([43.61, 3.88], 10);
-
-        // Définition du fond de carte (utilisation de OpenStreetMap)
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-        }).addTo(maCarte);
-
-        // Ajouter les marqueurs
-        L.marker([43.61, 3.88]).addTo(maCarte).bindPopup('Montpellier');
-
-        L.marker([43.62, 3.82]).addTo(maCarte)
-            .bindPopup('Juvignac');
-
-        L.marker([43.56, 3.90]).addTo(maCarte)
-            .bindPopup('Lattes');
-
-        L.marker([43.56, 3.96]).addTo(maCarte)
-            .bindPopup('Pérols');
-
-        L.marker([43.58, 3.96]).addTo(myMap)
-            .bindPopup('AéroportMontpellier');
-        // On pout ajouter autant de marqueurs que nécessaire
-    </script>
-</body>
-
-
-<body>
-    <h1>Carte Interactive avec les données météorologiques</h1>
-
-    <!-- Lien vers la carte interactive -->
-    <a href="http://localhost:8888/view/carte_meteo.html">Voir la carte interactive</a>
-
-    
-</body>
-
-
-</html>
-
-
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Résultats météorologiques pour 34070 Montpellier</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .dashboard {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #cccccc;
-            border-radius: 5px;
-        }
-        .current-weather {
-            text-align: center;
-            font-size: 24px;
-        }
-        .weather-details {
-            text-align: center;
-            font-size: 18px;
-        }
-        .forecast-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        .forecast-table th, .forecast-table td {
-            padding: 10px;
-            text-align: center;
-        }
-        .forecast-table th {
-            background-color: #3afa74;
-        }
-
-        /* Ajouts des couleurs en fonction des conditions météorologiques */
-        .sunny {
-            background-color: #ffff99; /* Jaune pour temps ensoleillé */
-        }
-        .rainy {
-            background-color: #99ccff; /* Bleu clair pour la pluie */
-        }
-        .default {
-            background-color: #f2f2f2; /* Gris clair par défaut */
-        }
-    </style>
-</head>
-<body>
-    <div class="dashboard">
-        <h1>Résultats pour 34070 Montpellier</h1>
-
-        <!-- Données météorologiques actuelles -->
-        <div class="current-weather">
-            <p class="sunny">Averses</p>
-            <p id="temperature">16°C</p>
-            <p id="precipitation">Précipitations : 80%</p>
-            <p id="humidity">Humidité : 70%</p>
-            <p id="wind">Vent : 35 km/h</p>
-        </div>
-
-        <!-- Prévisions météorologiques -->
-        <table class="forecast-table">
-            <!-- Vos prévisions existantes ici -->
-        </table>
-    </div>
-
-    <script>
-        // Fonction pour récupérer les données météorologiques depuis l'API
-        function getWeatherData() {
-            const apiUrl = "https://api.open-meteo.com/v1/forecast?latitude=43.6109&longitude=3.8763&current=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation&hourly=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation&daily=temperature_2m_max,temperature_2m_min&timezone=auto&forecast_days=16";
-
-            // On effectue un appel API pour récupérer les données afin de mettre à jour le tableau de bord
-            fetch(apiUrl)
-                .then(response => response.json())
-                .then(data => {
-                    // On met à jour le tableau de bord avec les nouvelles données
-                    updateDashboard(data);
-                })
-                .catch(error => {
-                    console.error("Erreur lors de la récupération des données météorologiques : ", error);
-                });
-        }
-
-        // Fonction pour mettre à jour le tableau de bord avec de nouvelles données
-        function updateDashboard(weatherData) {
-            const temperatureElement = document.getElementById('temperature');
-            const precipitationElement = document.getElementById('precipitation');
-            const humidityElement = document.getElementById('humidity');
-            const windElement = document.getElementById('wind');
-
-            // Mettre à jour les éléments avec les nouvelles données
-            temperatureElement.textContent = weatherData.current.temperature_2m + "°C";
-            precipitationElement.textContent = "Précipitations : " + weatherData.current.precipitation + "%";
-            humidityElement.textContent = "Humidité : " + weatherData.current.relativehumidity_2m + "%";
-            windElement.textContent = "Vent : " + weatherData.current.apparent_temperature + " km/h";
-        }
-
-        // Appel initial pour obtenir les données
-        getWeatherData();
-
-        // Actualisation des données toutes les 1 heures (3600000 millisecondes)
-        setInterval(getWeatherData, 3600000);
-    </script>
+    <h2> Ma carte interactive centrée sur montpellier</h2>
+    <div class="flexbox">
         
-        <!-- Prévisions météorologiques -->
-        <table class="forecast-table">
-            <tr>
-                <th>Météo</th>
-                <th class="sunny">jeudi</th>
-                <th class="rainy">ven.</th>
-                <th class="sunny">sam.</th>
-                <th class="sunny">dim.</th>
-                <th class="sunny">lun.</th>
-                <th class="sunny">mar.</th>
-                <th class="default">mer.</th>
-                <th class="sunny">jeu.</th>
-            </tr>
-            <tr>
-                <th></th>
-                <td class="sunny">Averses</td>
-                <td class="rainy">Averses éparses</td>
-                <td class="sunny">Averses</td>
-                <td class="sunny">Ensoleillé dans l'ensemble</td>
-                <td class="sunny">Ensoleillé dans l'ensemble</td>
-                <td class="sunny">Ensoleillé dans l'ensemble</td>
-                <td class="default">Partiellement couvert</td>
-                <td class="sunny">Averses éparses</td>
-            </tr>
-            <tr>
-                <th>Température</th>
-                <td class="sunny">16 °C</td>
-                <td class="rainy">14 °C</td>
-                <td class="sunny">16 °C</td>
-                <td class="sunny">18 °C</td>
-                <td class="sunny">17 °C</td>
-                <td class="sunny">17 °C</td>
-                <td class="default">17 °C</td>
-                <td class="sunny">17 °C</td>
-            </tr>
-            <tr>
-                <th>Précipitations</th>
-                <td class="rainy">80%</td>
-                <td class="sunny">60%</td>
-                <td class="sunny">70%</td>
-                <td class="sunny">20%</td>
-                <td class="sunny">10%</td>
-                <td class="sunny">10%</td>
-                <td class="default">30%</td>
-                <td class="sunny">60%</td>
-            </tr>
-            <tr>
-                <th>Vent</th>
-                <td class="sunny">35 km/h</td>
-                <td class="sunny">30 km/h</td>
-                <td class="sunny">40 km/h</td>
-                <td class="sunny">25 km/h</td>
-                <td class="sunny">20 km/h</td>
-                <td class="sunny">22 km/h</td>
-                <td class="default">18 km/h</td>
-                <td class="sunny">33 km/h</td>
-            </tr>
-        </table>
+        <div id="map" style="height: 320px; width: 99%;"></div>
+        <script>
+            // Création de la carte
+            var maCarte = L.map('map').setView([43.61, 3.88], 10);
+    
+            // Définition du fond de carte (utilisation de OpenStreetMap)
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+            }).addTo(maCarte);
+    
+            // Ajouter les marqueurs
+            L.marker([43.61, 3.88]).addTo(maCarte).bindPopup('Montpellier');
+    
+            L.marker([43.62, 3.82]).addTo(maCarte)
+                .bindPopup('Juvignac');
+    
+            L.marker([43.56, 3.90]).addTo(maCarte)
+                .bindPopup('Lattes');
+    
+            L.marker([43.56, 3.96]).addTo(maCarte)
+                .bindPopup('Pérols');
+    
+            L.marker([43.58, 3.96]).addTo(myMap)
+                .bindPopup('AéroportMontpellier');
+            // On pout ajouter autant de marqueurs que nécessaire
+        </script>    
+
     </div>
+
+
+    <main>   
+        <div class="dashboard">
+            <h2>Résultats pour 34070 Montpellier</h2>
+    
+            Données météorologiques actuelles
+            <div class="current-weather">
+                <p class="sunny">Averses</p>
+                <p id="temperature">16°C</p>
+                <p id="precipitation">Précipitations : 80%</p>
+                <p id="humidity">Humidité : 70%</p>
+                <p id="wind">Vent : 35 km/h</p>
+            </div>
+    
+            Prévisions météorologiques
+            <table class="forecast-table">
+                <!-- Vos prévisions existantes ici -->
+            </table>
+        </div>
+    
+        <script>
+            // Fonction pour récupérer les données météorologiques depuis l'API
+            function getWeatherData() {
+                const apiUrl = "https://api.open-meteo.com/v1/forecast?latitude=43.6109&longitude=3.8763&current=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation&hourly=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation&daily=temperature_2m_max,temperature_2m_min&timezone=auto&forecast_days=16";
+    
+                // On effectue un appel API pour récupérer les données afin de mettre à jour le tableau de bord
+                fetch(apiUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        // On met à jour le tableau de bord avec les nouvelles données
+                        updateDashboard(data);
+                    })
+                    .catch(error => {
+                        console.error("Erreur lors de la récupération des données météorologiques : ", error);
+                    });
+            }
+    
+            // Fonction pour mettre à jour le tableau de bord avec de nouvelles données
+            function updateDashboard(weatherData) {
+                const temperatureElement = document.getElementById('temperature');
+                const precipitationElement = document.getElementById('precipitation');
+                const humidityElement = document.getElementById('humidity');
+                const windElement = document.getElementById('wind');
+    
+                // Mettre à jour les éléments avec les nouvelles données
+                temperatureElement.textContent = weatherData.current.temperature_2m + "°C";
+                precipitationElement.textContent = "Précipitations : " + weatherData.current.precipitation + "%";
+                humidityElement.textContent = "Humidité : " + weatherData.current.relativehumidity_2m + "%";
+                windElement.textContent = "Vent : " + weatherData.current.apparent_temperature + " km/h";
+            }
+    
+            // Appel initial pour obtenir les données
+            getWeatherData();
+    
+            // Actualisation des données toutes les 1 heures (3600000 millisecondes)
+            setInterval(getWeatherData, 3600000);
+        </script> 
+
+
+
+
+</main>
+
+<p>
+    Au cours de ce projet, nous avons pû réaliser differente recherche concernant la Création d'une application météorologique.
+    Suite à ses recherche nous avons alors mise en place une méthode de travaille afin de répondre
+    à differente problématique qu'on s'est poser.
+</p>
+
+        <div class="grid">
+            <h2>Grid</h2>
+            <!-- des élément qui contients déautres choses -->
+            <div class="grid-container">
+                <img src="./Images/FDS.png" alt="logo_FDS">
+
+                <form action="">
+                    <input type="text"  id="firstname"
+                    placeholder="Prénom"  >
+                    <input type="text"  id="surname"
+                    placeholder="Nom"  >
+                    <textarea cols="30" rows="10" placeholder="Ici votre message"></textarea>
+                    <input type="submit" value="Valider" id="bton-submit">
+                </form>
+            </div>
+        </div>    
+   
+    
+
 </body>
 </html>
-
-
-
-
-
-
-
-
