@@ -9,7 +9,7 @@
 
 
 body{
-    background: url(./Images/image.png) center/cover;
+    background: url(./outils/Images/image.png) center/cover;
     font-family: "DMserif", verdana;
     /*vh = 100% de la taille de l'écran (viewport height)*/
     min-height: 100vh; 
