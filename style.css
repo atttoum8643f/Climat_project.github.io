@@ -142,7 +142,7 @@ h2{/*margin=0 implique qu'on enlève les marges de bases*/
 /*sert à répartie équitablement des éléments sur la page*/
 
 .flexbox dashboard {
-    max-width: 400;
+    max-width: 400px;
     margin: 0 auto;
     padding: 2px;
     border: 3px solid #920b0b;
