@@ -288,6 +288,47 @@
         </table>
     </div> 
 
+    <script>
+         function updateDashboard(data) {
+                // Sélectionnez le tableau
+                var table = document.querySelector('.forecast-table');
+            
+                // Créez les nouvelles lignes du tableau
+                var newRow1 = document.createElement('tr');
+                var newRow2 = document.createElement('tr');
+                var newRow3 = document.createElement('tr');
+                var newRow4 = document.createElement('tr');
+            
+                // Mettez à jour les données pour chaque jour
+                for (var i = 0; i < data.daily.length; i++) {
+                    var newCell1 = document.createElement('td');
+                    newCell1.textContent = data.daily[i].weather;
+                    newRow1.appendChild(newCell1);
+            
+                    var newCell2 = document.createElement('td');
+                    newCell2.textContent = data.daily[i].temperature + ' °C';
+                    newRow2.appendChild(newCell2);
+            
+                    var newCell3 = document.createElement('td');
+                    newCell3.textContent = data.daily[i].precipitation + '%';
+                    newRow3.appendChild(newCell3);
+            
+                    var newCell4 = document.createElement('td');
+                    newCell4.textContent = data.daily[i].wind + ' km/h';
+                    newRow4.appendChild(newCell4);
+                }
+            
+                // Ajoutez les nouvelles lignes au tableau
+                table.appendChild(newRow1);
+                table.appendChild(newRow2);
+                table.appendChild(newRow3);
+                table.appendChild(newRow4);
+            }
+            setInterval(getWeatherData, 180000);
+            // Appeler getWeatherData au chargement de la page
+            window.onload = getWeatherData;
+    </script>
+
 
     <div class="grid">
         <!-- <h2>Grid</h2> -->

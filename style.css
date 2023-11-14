@@ -160,6 +160,8 @@ h2{/*margin=0 implique qu'on enlève les marges de bases*/
     width: 100%;
     border-collapse: collapse;
     margin-top: 2px;
+    border: 2px rgb(209, 209, 59);
+    border-radius: 15px;
 }
 .flexbox forecast-table th, .forecast-table td {
     padding: 1px;
@@ -195,6 +197,7 @@ h2{/*margin=0 implique qu'on enlève les marges de bases*/
 .forecast-table {
     max-width: 100%;
     overflow: auto;
+    border: 2px rgb(209, 209, 59);
 }
 
 .current-weather {
