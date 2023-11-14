@@ -180,20 +180,15 @@
         <div class="dashboard">
             <h2>Résultats pour 34070 Montpellier</h2>
     
-            Données météorologiques actuelles
+           
             <div class="current-weather">
-                <p class="sunny">Averses</p>
+                <p class="sunny">Météo actuelle</p>
                 <p id="temperature">16°C</p>
                 <p id="precipitation">Précipitations : 80%</p>
                 <p id="humidity">Humidité : 70%</p>
                 <p id="wind">Vent : 35 km/h</p>
             </div>
-    
-            Prévisions météorologiques
-            <table class="forecast-table">
-                <!-- Vos prévisions existantes ici -->
-            </table>
-        </div>
+
     
         <script>
             // Fonction pour récupérer les données météorologiques depuis l'API
@@ -238,30 +233,78 @@
 
 </main>
 
+
 <p>
     Au cours de ce projet, nous avons pû réaliser differente recherche concernant la Création d'une application météorologique.
     Suite à ses recherche nous avons alors mise en place une méthode de travaille afin de répondre
     à differente problématique qu'on s'est poser.
 </p>
 
-        <div class="grid">
-            <!-- <h2>Grid</h2> -->
-            <!-- des élément qui contients déautres choses -->
-            <div class="grid-container">
-                <img src="./outils/Images/FDS.png" alt="logo_FDS">
-
-                <form action="">
-                    <input type="text"  id="firstname"
-                    placeholder="Prénom"  >
-                    <input type="text"  id="surname"
-                    placeholder="Nom"  >
-                    <textarea cols="30" rows="10" placeholder="Ici votre message"></textarea>
-                    <input type="submit" value="Valider" id="bton-submit">
-                </form>
-            </div>
-        </div>    
+  
    
-    
+        <table class="forecast-table">
+            <tr>
+                <th>Météo</th>
+                <th>jeudi <li><img src="./outils/Images/soleil.png" alt="image" height="40%" width="40%"></li></th>
+                <th>ven <li><img src="./outils/Images/ciel-nuageux.png" alt="FDS" height="40%" width="40%"></li></th>
+                <th>sam <li><img src="./outils/Images/soleilnuage.png" alt="FDS" height="40%" width="40%"></li></th>
+                <th>dim <li><img src="./outils/Images/pluie.png" alt="FDS" height="40%" width="40%"></li></th>
+                <th>lun <li><img src="./outils/Images/averse.png" alt="FDS" height="40%" width="40%"></li> </th>
+                <th>mar <li><img src="./outils/Images/pluie.png" alt="FDS" height="40%" width="40%"></li> </th>
+                <th>mer <li><img src="./outils/Images/ciel-nuageux.png" alt="FDS" height="40%" width="40%"></li></th>
+            
+            </tr>
+        
+            <tr>
+                <th>Température</th>
+                <td>16 °C</td>
+                <td>14 °C</td>
+                <td>16 °C</td>
+                <td>18 °C</td>
+                <td>17 °C</td>
+                <td>17 °C</td>
+                <td>17 °C</td>
+            </tr>
+            <tr>
+                <th>Précipitations</th>
+                <td>80%</td>
+                <td>60%</td>
+                <td>70%</td>
+                <td>20%</td>
+                <td>10%</td>
+                <td>10%</td>
+                <td>30%</td>
+            </tr>
+            <tr>
+                <th>Vent</th>
+                <td>35 km/h</td>
+                <td>30 km/h</td>
+                <td>40 km/h</td>
+                <td>25 km/h</td>
+                <td>20 km/h</td>
+                <td>22 km/h</td>
+                <td>18 km/h</td>
+            </tr>
+        </table>
+    </div> 
+
+
+    <div class="grid">
+        <!-- <h2>Grid</h2> -->
+        <!-- des élément qui contients déautres choses -->
+        <div class="grid-container">
+            <img src="./outils/Images/FDS.png" alt="logo_FDS">
+
+            <form action="">
+                <input type="text"  id="firstname"
+                placeholder="Prénom"  >
+                <input type="text"  id="surname"
+                placeholder="Nom"  >
+                <textarea cols="30" rows="10" placeholder="Ici votre message"></textarea>
+                <input type="submit" value="Valider" id="bton-submit">
+            </form>
+        </div>
+    </div>  
 
 </body>
 </html>
