@@ -2,8 +2,7 @@
 Ce projet, intitulé "Climat_project HAX712X," fait référence à un projet lié au climat. Il contient des mises à jour récentes et des informations sur les fichiers et packages utilisés pour son développement.
 
 ##   Lien du site
-Pour accéder au site associé à ce projet, veuillez suivre [ce lien]
-(https://atttoum8643f.github.io/Climat_project.github.io/)
+Pour accéder au site associé à ce projet, veuillez suivre [ce lien](https://atttoum8643f.github.io/Climat_project.github.io/)
 N'hésitez pas à explorer les fichiers dans ce répertoire pour en savoir plus sur les mises à jour et les fonctionnalités de ce projet.
 
 ## Packages utilisées
